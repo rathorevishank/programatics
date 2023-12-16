@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Matteo Bruni">
+    <title>Signin Template - tsParticles</title>
+    {% load static %}
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+    <link rel="stylesheet" href="{% static 'css/particles.css' %}">
+</head>
+
+<body>
+<div id="tsparticles"></div>
+<main class="box">
+    <h2>Login</h2>
+  
+        <form method="post" >
+            {% csrf_token %}
+            {% include "base/alert.html" %}
+        
+        <div class="inputBox">
+            <label for="email">Username</label>
+            <input type="email" name="email" id="email" placeholder="type your username or email" required/>
+        </div>
+        <div class="inputBox">
+            <label for="userPassword">Password</label>
+            <input type="password" name="userPassword" id="userPassword" placeholder="type your password"
+                   required/>
+        </div>
+  
+        <div>
+            <button type="submit" name="" style="float: left;">Submit</button>
+            <a class="button" href="/register" style="float: left;">Register</a>
+        </div>
+    </form>
+</main>
+<footer>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@1.34.1/tsparticles.min.js"
+        integrity="sha256-D6LXCdCl4meErhc25yXnxIFUtwR96gPo+GtLYv89VZo=" crossorigin="anonymous"></script>
+        <script>
+            tsParticles.loadJSON("tsparticles", "{% static 'json/particles.json' %}");
+        </script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</body>
+
+</html>
